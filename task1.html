@@ -1,0 +1,31 @@
+def count_words_and_vowels(sentence):
+    word_count = 0
+    vowel_count = 0
+    vowels = ['a', 'e', 'i', 'o', 'u']
+
+    # Remove trailing period if present
+    if sentence.endswith('.'):
+        sentence = sentence[:-1]
+
+    # Iterate over each character in the sentence
+    for char in sentence:
+        # Check if character is a letter
+        if char.isalpha():
+            # Count vowels
+            if char.lower() in vowels:
+                vowel_count += 1
+
+        # Check for word boundary (space character)
+        if char.isspace():
+            word_count += 1
+
+    # Add 1 to word count to account for the last word in the sentence
+    word_count += 1
+
+    return word_count, vowel_count
+
+# Example usage
+sentence = "The quick brown fox jumps over the lazy dog."
+num_words, num_vowels = count_words_and_vowels(sentence)
+print("Number of words:", num_words)
+print("Number of vowels:", num_vowels)
